@@ -1,0 +1,9 @@
+/composer.phar
+/npm-debug.log
+/node_modules
+/src/bower_components
+/public
+/vendor
+/src/**/*.css
+/src/js/main-build.js
+/var

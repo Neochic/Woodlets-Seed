@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "postinstall": "npm run install:bower && npm run install:composer && npm run install:links",
+    "install:composer": "php composer.phar install || (curl -sS https://getcomposer.org/installer | php && php composer.phar install)",
+    "install:bower": "bower install --config.interactive=false",
+    "install:links": "npm run install:links:wordpress && npm run install:links:theme",
+    "install:links:wordpress": "([ ! -e public ] && bash scripts/symlink.sh public vendor/WordPress) || true",
+    "install:links:theme": "([ ! -e vendor/WordPress/wp-content/themes/woodlets-seed ] && bash scripts/symlink.sh vendor/WordPress/wp-content/themes/woodlets-seed ../../../../src/) || true",
+    "build": "npm install && npm run build:js && npm run build:less",
+    "build:js": "node node_modules/requirejs/bin/r.js -o BaseUrl=src/js/ name=../bower_components/requirejs/require include=requirejs-config,bootstrap insertRequire=bootstrap mainConfigFile=src/js/requirejs-config.js out=src/js/main-build.js",
+    "build:less": "lessc src/style.less --clean-css --autoprefix > src/style.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bower": "^1.4.1",
+    "less": "^2.5.1",
+    "less-plugin-clean-css": "^1.5.1",
+    "less-plugin-autoprefix": "^1.4.2",
+    "requirejs": "^2.1.20"
+  }
+}

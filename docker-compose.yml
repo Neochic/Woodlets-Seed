@@ -1,0 +1,18 @@
+woodlets:
+  image: tutum/apache-php
+  restart: always
+  ports:
+    - ${WOODLETS_EXPOSE_PORT}:80
+  volumes:
+    - ./:/var/www/woodlets
+  links:
+    - mysql
+  command: bash -c "rm -r /var/www/html && ln -s /var/www/woodlets/public /var/www/html && /run.sh"
+mysql:
+  image: tutum/mysql:5.6
+  restart: always
+  volumes:
+    - ./var/mysql:/var/lib/mysql
+  environment:
+    - MYSQL_PASS=admin
+    - ON_CREATE_DB=wordpress
