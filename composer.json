@@ -1,26 +1,12 @@
 {
-  "repositories": [
-    {
-      "type": "package",
-      "package": {
-        "name": "WordPress",
-        "version": "4.5.2",
-        "dist": {
-          "type": "zip",
-          "url": "https://github.com/WordPress/WordPress/archive/4.5.2.zip"
-        }
-      }
-    }
-  ],
   "extra": {
     "installer-paths": {
-      "vendor/WordPress/wp-content/plugins/{$name}/": [
+      "public/wp-content/plugins/{$name}/": [
         "type:wordpress-plugin"
       ]
     }
   },
   "require": {
-    "wordpress": "4.*",
     "neochic/woodlets": "0.*"
   }
 }

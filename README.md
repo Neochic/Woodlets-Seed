@@ -6,6 +6,9 @@ WordPress project skeleton for Woodlets projects.
 * [Node Package Manager (npm)](https://www.npmjs.com/)
 * [PHP](http://www.php.net/)
 
+### Windows
+* [Git Bash](https://git-for-windows.github.io/)
+
 ### Optional
 * [Docker](https://docs.docker.com/)
 * [Docker Compose](https://docs.docker.com/compose/)
@@ -23,9 +26,9 @@ WordPress project skeleton for Woodlets projects.
    * Set ```DocumentRoot``` of your Apache to the ```public``` directory of your just downloaded Woodlets Seed sources.
 5. Access your new WordPress installation via Browser and run through install steps.  
    If you used Docker the database server is ```mysql``` and username and password for mysql are ```admin```
-6. Include the composer autoloader at the top of your ```wp-config.php```
+6. Include the composer autoloader at the top of your ```wp-config.php``` (in the line after the opening PHP tag)
    ```php
-   $autoloader = __DIR__ . '/../../vendor/autoload.php';
+   $autoloader = __DIR__ . '/../vendor/autoload.php';
 
    if (is_file($autoloader)) {
      require_once($autoloader);
@@ -36,3 +39,11 @@ WordPress project skeleton for Woodlets projects.
 8. Log in to WordPress backend
 9. Activate Woodlets plugin
 10. Activate woodlets-seed theme
+
+
+## Configure port for docker permanently
+You can create [a environment file](https://docs.docker.com/compose/env-file/) with the name ```.env``` and put the environment variable in there.
+```
+WOODLETS_EXPOSE_PORT=80
+```
+Then you'll be able to use docker-compose without setting the port each time explicitly.

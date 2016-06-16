@@ -5,6 +5,7 @@ woodlets:
     - ${WOODLETS_EXPOSE_PORT}:80
   volumes:
     - ./:/var/www/woodlets
+    - ./src/:/var/www/woodlets/public/wp-content/themes/woodlets-seed
   links:
     - mysql
   command: bash -c "rm -r /var/www/html && ln -s /var/www/woodlets/public /var/www/html && /run.sh"

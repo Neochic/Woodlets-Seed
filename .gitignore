@@ -7,3 +7,5 @@
 /src/**/*.css
 /src/js/main-build.js
 /var
+/.env
+/wordpress.zip
