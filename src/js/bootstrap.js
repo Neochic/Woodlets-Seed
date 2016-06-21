@@ -1,3 +1,4 @@
 define([
-    "jquery"
+    "jquery",
+    "wp-inlcudes/wp-embed.min"
 ], function($) {});

@@ -8,7 +8,7 @@ woodlets:
     - ./src/:/var/www/woodlets/public/wp-content/themes/woodlets-seed
   links:
     - mysql
-  command: bash -c "rm -r /var/www/html && ln -s /var/www/woodlets/public /var/www/html && /run.sh"
+  command: bash -c "rm -r /var/www/html && ln -s /var/www/woodlets/public /var/www/html && a2enmod rewrite && sed -i '13i <Directory /var/www/html>\nAllowOverride All\n</Directory>' /etc/apache2/sites-available/000-default.conf && /run.sh"
 mysql:
   image: tutum/mysql:5.6
   restart: always

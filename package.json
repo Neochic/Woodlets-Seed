@@ -7,7 +7,7 @@
     "install:links": "npm run install:links:theme",
     "install:links:theme": "([ ! -e public/wp-content/themes/woodlets-seed ] && bash scripts/symlink.sh public/wp-content/themes/woodlets-seed ../../../src/) || true",
     "build": "npm install && npm run build:js && npm run build:less",
-    "build:js": "node node_modules/requirejs/bin/r.js -o BaseUrl=src/js/ name=../bower_components/requirejs/require include=requirejs-config,bootstrap insertRequire=bootstrap mainConfigFile=src/js/requirejs-config.js out=src/js/main-build.js",
+    "build:js": "node node_modules/requirejs/bin/r.js -o BaseUrl=src/js/ name=../bower_components/requirejs/require include=requirejs-config,bootstrap paths.wp-inlcudes=../../public/wp-includes/js insertRequire=bootstrap mainConfigFile=src/js/requirejs-config.js out=src/js/main-build.js",
     "build:less": "lessc src/style.less --relative-urls --clean-css --autoprefix > src/style.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
