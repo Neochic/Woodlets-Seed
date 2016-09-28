@@ -18,7 +18,7 @@ WordPress project skeleton for Woodlets projects.
    If you don't have git you may just [download the latest version](https://github.com/Neochic/Woodlets/archive/master.zip) and extract it.
 2. Change into the directory with the downloaded Woodlets Seed sources.
 3. run ```npm run build```
-   *Caution: There is currently an issue on creating the link to the theme on Windows (not testen on MacOS). If you don't use the Docker, you may have to create a link from public/wp-content/themes/<your_theme_name> to src/ manually with mklink via administrator shell.*
+   *Caution: There is currently an issue on creating the link to the theme on Windows (not testen on MacOS). If you don't use Docker, you may have to create a link from public/wp-content/themes/<your_theme_name> to src/ manually with mklink via administrator shell.*
 4. **With Docker**  
    Run ```WOODLETS_EXPOSE_PORT=80 docker-compose up -d``` (you may change the port 80 to any other port)  
    **Without Docker**
