@@ -17,3 +17,4 @@ mysql:
   environment:
     - MYSQL_PASS=admin
     - ON_CREATE_DB=wordpress
+    - EXTRA_OPTS=${WOODLETS_MYSQL_EXTRA_OPTS}
