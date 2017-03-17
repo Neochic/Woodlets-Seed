@@ -1,4 +1,7 @@
 <?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once(__DIR__ . '/services/Tgm.php');
+
 /*
  * remove wp-embed javascript, since it's included via requirejs
  */

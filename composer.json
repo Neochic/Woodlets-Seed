@@ -1,12 +1,8 @@
 {
-  "extra": {
-    "installer-paths": {
-      "public/wp-content/plugins/{$name}/": [
-        "type:wordpress-plugin"
-      ]
-    }
+  "config": {
+    "vendor-dir": "src/vendor/"
   },
   "require": {
-    "neochic/woodlets": "0.*"
+    "tgmpa/tgm-plugin-activation": "^2.6"
   }
 }

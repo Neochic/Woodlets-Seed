@@ -27,19 +27,11 @@ WordPress project skeleton for Woodlets projects.
    * Set ```DocumentRoot``` of your Apache to the ```public``` directory of your just downloaded Woodlets Seed sources.
 5. Access your new WordPress installation via Browser and run through install steps.  
    If you used Docker the database server is ```mysql``` and username and password for mysql are ```admin```
-6. Include the composer autoloader at the top of your ```wp-config.php``` (in the line after the opening PHP tag)
-   ```php
-   $autoloader = __DIR__ . '/../vendor/autoload.php';
-
-   if (is_file($autoloader)) {
-     require_once($autoloader);
-   }
-   ```
-7. You should set ```WP_DEBUG``` in ```wp-config.php``` to ```true``` in development environments.  
+6. You should set ```WP_DEBUG``` in ```wp-config.php``` to ```true``` in development environments.  
    If it's set to ```false``` the combined javascript of the theme gets loaded. Therefore an ```npm run build``` would be needed after each change to the javascript files.
-8. Log in to WordPress backend
-9. Activate Woodlets plugin
-10. Activate woodlets-seed theme
+7. Log in to WordPress backend
+8. Activate Woodlets plugin
+9. Activate woodlets-seed theme
 
 
 ## Configure port for docker permanently
