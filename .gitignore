@@ -1,11 +1,9 @@
 /composer.phar
 /npm-debug.log
 /node_modules
-/src/bower_components
 /public
 /src/vendor
 /src/**/*.css
 /src/js/main-build.js
 /var
 /.env
-/wordpress.zip

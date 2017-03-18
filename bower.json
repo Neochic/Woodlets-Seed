@@ -1,7 +1,0 @@
-{
-  "name": "neochic-woodlets-seed",
-  "devDependencies": {
-    "requirejs": "~2.2.0",
-    "jquery": "~2.2.4"
-  }
-}
