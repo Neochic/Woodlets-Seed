@@ -1,20 +1,25 @@
-woodlets:
-  image: tutum/apache-php
+apache:
+  image: wordpress:php7.1
   restart: always
   ports:
     - ${WOODLETS_EXPOSE_PORT}:80
   volumes:
-    - ./:/var/www/woodlets
-    - ./src/:/var/www/woodlets/public/wp-content/themes/woodlets-seed
+    - ./public:/var/www/html/
+    - ./src/:/var/www/html/wp-content/themes/${WOODLETS_NAME}
   links:
     - mysql
-  command: bash -c "rm -r /var/www/html && ln -s /var/www/woodlets/public /var/www/html && a2enmod rewrite && sed -i '13i <Directory /var/www/html>\nAllowOverride All\n</Directory>' /etc/apache2/sites-available/000-default.conf && /run.sh"
+  environment:
+    - WORDPRESS_DB_HOST=mysql
+    - WORDPRESS_DB_USER=admin
+    - WORDPRESS_DB_PASSWORD=admin
+    - WORDPRESS_DB_NAME=wordpress
 mysql:
-  image: tutum/mysql:5.6
+  image: mysql
   restart: always
   volumes:
     - ./var/mysql:/var/lib/mysql
   environment:
-    - MYSQL_PASS=admin
-    - ON_CREATE_DB=wordpress
-    - EXTRA_OPTS=${WOODLETS_MYSQL_EXTRA_OPTS}
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_USER=admin
+    - MYSQL_PASSWORD=admin
+    - MYSQL_DATABASE=wordpress
