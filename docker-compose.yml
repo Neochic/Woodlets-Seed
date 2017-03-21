@@ -13,6 +13,12 @@ apache:
     - WORDPRESS_DB_USER=admin
     - WORDPRESS_DB_PASSWORD=admin
     - WORDPRESS_DB_NAME=wordpress
+  command: |
+      bash -c "
+      chown -R www-data: /var/www/html &&
+      chmod -R g+w /var/www/html &&
+      apache2-foreground
+      "
 mysql:
   image: mysql
   restart: always
