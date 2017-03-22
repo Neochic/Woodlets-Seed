@@ -8,7 +8,7 @@ module.exports = {
         "./src/style.less"
     ],
     output: {
-        path: "./src/js/",
+        path: __dirname+"/src/js/",
         filename: "main-build.js"
     },
     resolve: {
