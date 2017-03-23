@@ -1,13 +1,14 @@
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CleanCSSPlugin = require("less-plugin-clean-css");
 var AutoprefixPlugin = require("less-plugin-autoprefix");
+var path = require('path');
 
 /*
  * Capitalize drive letter on windows as workaround for
  * webpack bug.
  * https://github.com/webpack/webpack/issues/4530
  */
-var outputPath = path.resolve(__dirname, 'src/js/');
+var outputPath = path.resolve(__dirname, 'src/');
 outputPath = outputPath.charAt(0).toUpperCase() + outputPath.slice(1);
 
 module.exports = {
@@ -23,7 +24,7 @@ module.exports = {
         extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
     },
     plugins: [
-        new ExtractTextPlugin("../style.css")
+        new ExtractTextPlugin("style.css")
     ],
     module: {
         loaders: [
