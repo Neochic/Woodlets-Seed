@@ -14,14 +14,8 @@ add_action( 'tgmpa_register', function() {
 	);
 
 	$config = array(
-		'id'           => 'woodlets_seed',
-		'menu'         => 'tgmpa-install-plugins',
-		'parent_slug'  => 'themes.php',
-		'capability'   => 'edit_theme_options',
-		'has_notices'  => true,
-		'dismissable'  => true,
-		'is_automatic' => false,
-		'message'      => ''
+        'dismissable'  => false,
+        'is_automatic' => true
 	);
 
 	tgmpa( $plugins, $config );
