@@ -3,7 +3,8 @@
 /node_modules
 /public
 /src/vendor
+/src/vendor-assets
 /src/**/*.css
-/src/js/main-build.js
+/src/main-build.js
 /var
 /.env
