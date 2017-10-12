@@ -2,6 +2,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CleanCSSPlugin = require("less-plugin-clean-css");
 var AutoprefixPlugin = require("less-plugin-autoprefix");
 var path = require('path');
+var fs = require('fs-extra');
 
 /*
  * Capitalize drive letter on windows as workaround for
