@@ -47,12 +47,21 @@ module.exports = {
                                 plugins: [
                                     {
                                         // inline less plugin to rewrite ../node_modules directory, which
-                                        // is not in theme path, to vendor-assets/ this is meant to be
-                                        // used in combination with copy-webpack-plugin
+                                        // is not in theme path, to vendor-assets/
+                                        // also copies files and adds cachebust
                                         install: function(less, pluginManager) {
                                             pluginManager.addPostProcessor({
                                                 process: function(css) {
-                                                    return css.replace(/\.\.\/node_modules\//g, 'vendor-assets/');
+                                                    fs.removeSync('src/vendor-assets');
+                                                    const cacheBustTimestamp = Date.now();
+                                                    return css.replace(/url\((['"]?)\.\.\/node_modules\/(.*?)(['"]?)\)/g, function(match, offset, filePath) {
+                                                        filePath = filePath.split(/[?#]+/)[0];
+                                                        const extLength = path.extname(filePath).length;
+                                                        const filePathWithCacheBust = filePath.slice(0, extLength*-1)+'-'+cacheBustTimestamp+filePath.slice(extLength*-1);
+                                                        fs.ensureDirSync(path.dirname('src/vendor-assets/'+filePathWithCacheBust));
+                                                        fs.copySync('node_modules/'+filePath, 'src/vendor-assets/'+filePathWithCacheBust);
+                                                        return match.replace('../node_modules/'+filePath, 'vendor-assets/'+filePathWithCacheBust);
+                                                    });
                                                 }
                                             });
                                         }
